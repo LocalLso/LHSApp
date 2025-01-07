@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Assessment</title>
+</head>
+<body>
+    <h1>Take Assessment</h1>
+    <form method="POST" action="{{ url_for('assessments.take_assessment', assessment_id=assessment.id) }}">
+        {{ form.hidden_tag() }}
+        <p>{{ assessment.question }}</p>
+        <label for="answer">Your Answer:</label>
+        {{ form.answer }}<br>
+        {{ form.submit }}
+    </form>
+</body>
+</html>
+

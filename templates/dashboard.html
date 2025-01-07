@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('assessments.add_assessment') }}">Add Assessment</a> | <a href="{{ url_for('users.logout') }}">Logout</a>
+    <h2>Assessments</h2>
+    <ul>
+        {% for assessment in assessments %}
+        <li>{{ assessment.question }} - <a href="{{ url_for('assessments.take_assessment', assessment_id=assessment.id) }}">Take Assessment</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics</title>
+</head>
+<body>
+    <h1>Analytics</h1>
+    <!-- Implement your analytics visualizations here -->
+    <h2>Assessments</h2>
+    <ul>
+        {% for assessment in assessments %}
+        <li>{{ assessment.question }} - {{ assessment.answer }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Grades</h2>
+    <ul>
+        {% for grade in grades %}
+        <li>{{ grade.username }} scored {{ grade.score }} on "{{ grade.assessment.question }}"</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

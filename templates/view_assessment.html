@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Assessment</title>
+</head>
+<body>
+    <h1>Assessment Details</h1>
+    <p><strong>Question:</strong> {{ assessment.question }}</p>
+    <p><strong>Answer:</strong> {{ assessment.answer }}</p>
+    <a href="{{ url_for('assessments.dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
+
