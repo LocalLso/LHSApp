@@ -2,15 +2,25 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="POST" action="{{ url_for('users.login') }}">
-        {{ form.hidden_tag() }}
-        <label for="username">Username:</label>
-        {{ form.username }}<br>
-        <label for="password">Password:</label>
-        {{ form.password }}<br>
-        {{ form.submit }}
-    </form>
-</[_{{{CITATION{{{_1{](https://github.com/wproffi2/passwordmanager/tree/4ef2d7d9ec364b01c69d1bb34902df050313f241/app%2Fmodels.py)[_{{{CITATION{{{_2{](https://github.com/Snickdx/flask-messenger/tree/6ee869c1bac3dab34d0f87908320243f0f43ef42/models%2Fuser.py)[_{{{CITATION{{{_3{](https://github.com/b166er-droid/HerokuDeploy/tree/28b2f8ba39348802ab738906ac725315fc213995/models.py)[_{{{CITATION{{{_4{](https://github.com/Corkian/blog-crypto/tree/5d8a5424552acb11656b15988331fb6231ce23b5/webapp%2Fusers%2Froutes.py)[_{{{CITATION{{{_5{](https://github.com/Kohdz/Konek/tree/a142e62e6fd0832f7ec4c1336053e19810a54554/konek%2Fusers%2Froutes.py)[_{{{CITATION{{{_6{](https://github.com/jotroju/project/tree/f080dc5a7aca6cc1228fc2fb956468188e8022e8/flasktrial%2Fapp.py)[_{{{CITATION{{{_7{](https://github.com/JoannaLe/Twitter-Remake/tree/40d5783ca657e81f498c33192a6ffb03da036744/forms.py)[_{{{CITATION{{{_8{](https://github.com/theopmw/recipe-box/tree/ed3f6a314004d3b18ad5bc4045138e9cb86460de/forms.py)[_{{{CITATION{{{_9{](https://github.com/Ni3dzwi3dz/NoticeBoard/tree/f926cddc8d133b4212514b8f8d89c8004b6d22a5/app%2Fforms.py)
+    <nav>
+        <a href="{{ url_for('users.login') }}">Login</a>
+        <a href="{{ url_for('users.register') }}">Register</a>
+    </nav>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="{{ url_for('users.login') }}">
+            {{ form.hidden_tag() }}
+            <label for="username">Username:</label>
+            {{ form.username }}<br>
+            <label for="password">Password:</label>
+            {{ form.password }}<br>
+            {{ form.submit }}
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+

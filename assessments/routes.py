@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from app import db
+from extensions import db
 from assessments.models import Assessment, Grade
 from assessments.forms import AssessmentForm, AnswerForm
 from assessments.grading import grade_assessment

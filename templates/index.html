@@ -2,10 +2,17 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Mathematics Assessment System</h1>
-    <a href="{{ url_for('users.login') }}">Login</a> or <a href="{{ url_for('users.register') }}">Register</a>
+    <nav>
+        <a href="{{ url_for('users.login') }}">Login</a>
+        <a href="{{ url_for('users.register') }}">Register</a>
+    </nav>
+    <div class="container">
+        <h1>Welcome to the Mathematics Assessment System</h1>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
 

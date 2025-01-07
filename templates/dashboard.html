@@ -2,16 +2,23 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <a href="{{ url_for('assessments.add_assessment') }}">Add Assessment</a> | <a href="{{ url_for('users.logout') }}">Logout</a>
-    <h2>Assessments</h2>
-    <ul>
-        {% for assessment in assessments %}
-        <li>{{ assessment.question }} - <a href="{{ url_for('assessments.take_assessment', assessment_id=assessment.id) }}">Take Assessment</a></li>
-        {% endfor %}
-    </ul>
+    <nav>
+        <a href="{{ url_for('assessments.add_assessment') }}">Add Assessment</a>
+        <a href="{{ url_for('users.logout') }}">Logout</a>
+    </nav>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <h2>Assessments</h2>
+        <ul>
+            {% for assessment in assessments %}
+            <li>{{ assessment.question }} - <a href="{{ url_for('assessments.take_assessment', assessment_id=assessment.id) }}">Take Assessment</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
 

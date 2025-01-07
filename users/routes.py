@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, session
-from app import db, login_manager
+from extensions import db, login_manager
 from users.models import User
 from users.forms import RegistrationForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
