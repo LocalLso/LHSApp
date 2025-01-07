@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, session
+from flask import Blueprint, render_template, redirect, url_for, request, session, flash
 from extensions import db, login_manager
 from users.models import User
 from users.forms import RegistrationForm, LoginForm
@@ -25,17 +25,23 @@ def login():
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
             return redirect(url_for('assessments.dashboard'))
-        return 'Invalid username or password'
+        flash('Invalid username or password', 'danger')
     return render_template('login.html', form=form)
 
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        existing_user = User.query.filter_by(username=form.username.data).first()
+        if existing_user:
+            flash('Username already exists. Please choose a different one.', 'danger')
+            return render_template('register.html', form=form)
+        
         hashed_password = generate_password_hash(form.password.data)
-        new_user = User(username=form.username.data, password=hashed_password)
+        new_user = User(username=form.username.data, password=hashed_password, role=form.role.data)
         db.session.add(new_user)
         db.session.commit()
+        flash('Registration successful! Please log in.', 'success')
         return redirect(url_for('users.login'))
     return render_template('register.html', form=form)
 

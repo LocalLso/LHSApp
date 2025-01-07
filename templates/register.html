@@ -10,6 +10,13 @@
         <a href="{{ url_for('users.register') }}">Register</a>
     </nav>
     <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <h1>Register</h1>
         <form method="POST" action="{{ url_for('users.register') }}">
             {{ form.hidden_tag() }}
@@ -19,6 +26,8 @@
             {{ form.password }}<br>
             <label for="confirm">Confirm Password:</label>
             {{ form.confirm }}<br>
+            <label for="role">Role:</label>
+            {{ form.role }}<br>
             {{ form.submit }}
         </form>
     </div>

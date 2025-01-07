@@ -3,4 +3,4 @@ Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.0
 Flask-Login==0.5.0
 Werkzeug==2.0.3
-
+Flask-Migrate==3.0.1
