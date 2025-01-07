@@ -39,3 +39,8 @@ def grades():
     user_grades = Grade.query.filter_by(username=current_user.username).all()
     return render_template('grades.html', grades=user_grades)
 
+@assessments_bp.route('/view_assessment/<int:assessment_id>')
+def view_assessment(assessment_id):
+    assessment = Assessment.query.get_or_404(assessment_id)
+    return render_template('view_assessment.html', assessment=assessment)
+
